@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+/* ───────────────────────────────────────────────────────────────
+   Funke — brand mood layer (loaded last, overrides everything before)
+   Type  : Neue Haas Grotesk → Helvetica Neue → Inter Tight · italic headlines, bold-italic emphasis, tight tracking
+   Colour: Ink #12141C · Slate #485E80 · Blue #719EDC · Mist #C0D8F2 · Red #FA3E31 · Cream #FFFCC5
+   Mood  : campaign posters — ember glow, slate→mist bands, big italic type
+   ─────────────────────────────────────────────────────────────── */
+:root{
+  --ff:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,'Inter Tight',Arial,sans-serif;
+  --ink:#12141c;--slate:#485e80;--blue:#719edc;--mist:#c0d8f2;--red:#fa3e31;--cream:#fffcc5;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --band-slate:linear-gradient(95deg,#485e80 0%,#6a86ad 55%,#c0d8f2 125%);
+  --band-red:linear-gradient(95deg,#fa3e31 0%,#fa3e31 52%,#ff7e5a 100%);
+  --band-fire:linear-gradient(95deg,#fffcc5 0%,#ffc2a1 32%,#fa3e31 100%);
+}
+html[data-theme=dark]{
+  --band-slate:linear-gradient(95deg,#485e80 0%,#33455f 55%,#1b2230 100%);
+}
+html body,html button,html input,html select{font-family:var(--ff)}
+html body{letter-spacing:-.012em;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","kern"}
+::selection{background:var(--red);color:var(--cream)}
+
+/* ── type: italic headlines, regular first line, bold-italic emphasis ── */
+html body .panel h2,html body .guide h2,html body .lab-heading h2,html body .section-label h2,
+html body .finish-heading h2,html body .print-dialog h2{font-style:italic;font-weight:700;letter-spacing:-.04em;word-spacing:.06em}
+html body .panel h2{font-size:clamp(34px,3.3vw,46px);line-height:.95}
+html body .panel h2::first-line,html body .finish-heading h2::first-line,html body .print-dialog h2::first-line{font-weight:400}
+html body .lab-heading h2{font-size:clamp(22px,2.3vw,32px);color:#fff}
+html body .guide h2{font-weight:600}
+html body .tabs button{font-style:italic;font-weight:600;text-transform:uppercase;letter-spacing:-.03em;word-spacing:.04em;color:var(--slate);opacity:.5;transition:opacity .3s,color .3s,transform .4s var(--ease)}
+html body .tabs button small{font-style:normal;font-weight:600;letter-spacing:.04em}
+html body .tabs button:hover{opacity:.9;transform:translateY(-2px)}
+html body .tabs button.active{opacity:1;color:var(--text);text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:3px;text-underline-offset:9px}
+html body .tabs button.active small{color:var(--red)}
+html body .mode-list button b,html body .slider-label output{font-style:italic;font-weight:600;letter-spacing:-.035em}
+html body .field-title,html body .slider-label,html body .panel-heading,html body .stage-top,html body .stage-bottom,html body .lab-toolbar,html body .section-label>span,html body .lab-heading p,html body .colour-fields label,html body .range-limits{text-transform:uppercase;letter-spacing:.06em;font-weight:500}
+html body .panel-copy,html body .hint,html body .guide-columns p,html body .intro-bottom p{font-style:italic;font-weight:500;letter-spacing:-.02em}
+html body .guide-columns b,html body .eyebrow{font-style:italic;font-weight:700;letter-spacing:-.02em}
+html body .option-grid button{font-style:italic;font-weight:500;transition:color .25s,transform .3s var(--ease)}
+html body .option-grid button:hover{transform:translateX(3px)}
+html body .option-grid button.selected,html body .mode-list button.selected b{text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:5px;color:var(--text)}
+html body .mode-list button.selected span{color:var(--slate)}
+.about-link,.small-button,.text-button{font-style:italic;font-weight:500}
+
+/* ── masthead ── */
+html body .mast .small-button{color:var(--red);border:1.5px solid var(--red);padding:8px 16px;border-radius:99px;font-weight:600;transition:background .3s,color .3s,box-shadow .3s}
+html body .mast .small-button:hover{background:var(--red);color:var(--cream);box-shadow:0 8px 24px -8px rgba(250,62,49,.8)}
+html body .about-link{position:relative}
+html body .about-link::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:var(--red);transform:scaleX(0);transform-origin:0 50%;transition:transform .4s var(--ease)}
+html body .about-link:hover::after{transform:scaleX(1)}
+
+/* ── colour bands: slate→mist, red, fire ── */
+html body .lab-heading{background:var(--band-slate);padding-top:clamp(22px,2.6vw,36px);padding-bottom:clamp(22px,2.6vw,36px)}
+html body .lab-heading p{color:rgba(255,255,255,.88)}
+html body .intro-bottom{background:var(--band-red);color:var(--ink)}
+html body .lab-toolbar{background:var(--band-red);color:var(--ink)}
+html body .lab-toolbar button{font-style:italic;font-weight:700;text-transform:none;letter-spacing:-.02em;font-size:13px;transition:transform .3s var(--ease)}
+html body .lab-toolbar button:hover{transform:translateX(4px)}
+html body .preset-dock .section-label{background:var(--band-slate)}
+html body footer{background:var(--band-fire);color:var(--ink);padding-top:34px;padding-bottom:34px}
+html body footer a,html body footer>span{color:var(--ink);font-style:italic;font-weight:700;letter-spacing:-.02em;font-size:12px}
+
+/* ── ember: warm light behind the stage, like the posters ── */
+.stage{background:transparent;isolation:isolate}
+.stage::before{content:"";position:absolute;inset:-6%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(48% 46% at 50% 54%,rgba(250,62,49,.13) 0%,rgba(255,252,197,.12) 38%,rgba(255,252,197,0) 72%),
+    radial-gradient(70% 60% at 100% 0%,rgba(113,158,220,.12),transparent 70%);
+  animation:emberBreath 7s ease-in-out infinite}
+html[data-theme=dark] .stage::before{background:
+    radial-gradient(48% 46% at 50% 54%,rgba(250,62,49,.30) 0%,rgba(250,62,49,.08) 45%,rgba(250,62,49,0) 72%),
+    radial-gradient(70% 60% at 100% 0%,rgba(72,94,128,.45),transparent 70%)}
+@keyframes emberBreath{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.07);opacity:1}}
+html body .stage-top,html body .stage-bottom{color:var(--slate)}
+html[data-theme=dark] body .stage-top,html[data-theme=dark] body .stage-bottom{color:var(--mist)}
+
+/* ── controls: sliders with a lit track, red ember thumb ── */
+html body input[type=range]{height:3px;border-radius:3px;background:linear-gradient(90deg,var(--red) var(--pct,50%),rgba(72,94,128,.28) var(--pct,50%));margin:16px 0}
+html[data-theme=dark] body input[type=range]{background:linear-gradient(90deg,var(--red) var(--pct,50%),rgba(192,216,242,.22) var(--pct,50%))}
+html body input[type=range]::-webkit-slider-thumb{width:17px;height:17px;border-radius:50%;background:var(--red);border:3px solid var(--cream);box-shadow:0 0 0 0 rgba(250,62,49,.35),0 0 16px rgba(250,62,49,.6);transition:transform .25s var(--ease),box-shadow .3s}
+html body input[type=range]::-moz-range-thumb{width:11px;height:11px;border-radius:50%;background:var(--red);border:3px solid var(--cream);box-shadow:0 0 16px rgba(250,62,49,.6)}
+html body input[type=range]:hover::-webkit-slider-thumb,html body input[type=range]:active::-webkit-slider-thumb{transform:scale(1.2);box-shadow:0 0 0 6px rgba(250,62,49,.18),0 0 22px rgba(250,62,49,.75);background:var(--red)}
+html body .slider-label output{color:var(--red)}
+html body .palette.selected .strip{outline:2px solid var(--red);outline-offset:3px}
+html body .palette .strip{transition:transform .3s var(--ease)}
+html body .palette:hover .strip{transform:scale(1.12) rotate(-4deg)}
+html body .bg-options button.selected{outline:2px solid var(--red)}
+
+html body .primary,html body #play{background:var(--band-red);color:var(--ink);font-style:italic;font-weight:700;letter-spacing:-.03em;border-radius:0;transition:transform .35s var(--ease),box-shadow .35s,filter .3s}
+html body .primary:hover,html body #play:hover{background:var(--band-red);color:var(--ink);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(250,62,49,.85);filter:saturate(1.1)}
+html body .primary:active{transform:translateY(0)}
+html body .outline{font-style:italic;font-weight:500;border-bottom-color:var(--slate);transition:color .25s,padding-left .3s var(--ease)}
+html body .outline:hover{color:var(--red);padding-left:6px}
+html body #finishSticker{font-size:24px!important}
+html body select{border-bottom-color:var(--slate);font-style:italic}
+html body #toast{background:var(--ink);color:var(--cream);border-left:4px solid var(--red);font-style:italic;font-weight:500}
+
+/* ── panels animate in ── */
+html body .panel.active{animation:panelIn .6s var(--ease) both}
+@keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ── presets ── */
+html body .preset-dock .preset img{transition:transform .5s var(--ease)}
+html body .preset-dock .preset:hover img{transform:translateY(-6px) rotate(-3deg) scale(1.03)}
+html body .preset-caption{font-style:italic;font-weight:600}
+html body .preset-dock .preset.selected .preset-caption{border-top:2px solid var(--red)}
+html body .preset-dock .preset.selected .preset-caption>span:last-child{text-decoration:none;color:var(--red)!important}
+
+/* ── guide: big italic copy over a slow ember ── */
+html body .guide{position:relative;overflow:hidden;padding-top:clamp(48px,6vw,96px);padding-bottom:clamp(60px,8vw,120px);border-top:0}
+html body .guide>*{position:relative;z-index:1}
+html body .guide::after{content:"";position:absolute;z-index:0;right:-14vw;top:-6vw;width:52vw;aspect-ratio:1;border-radius:50%;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(250,62,49,.55),rgba(255,176,140,.28) 45%,rgba(255,252,197,0) 72%);filter:blur(14px);opacity:.5;animation:emberBreath 9s ease-in-out infinite}
+html[data-theme=dark] body .guide::after{opacity:.7}
+html body .guide h2{font-size:clamp(40px,5.4vw,84px);line-height:.96}
+html body .guide-columns p{font-size:13px;line-height:1.5}
+html body .guide-columns b{color:var(--red)}
+.eyebrow{color:var(--red);text-transform:uppercase;letter-spacing:.08em!important;font-size:10px}
+
+/* ── scroll rise ── */
+html.mood-js .m-rise{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+html.mood-js .m-rise.in{opacity:1;transform:none}
+
+/* ── mouse: ember light that follows you; rings on click ── */
+#ember{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:60;opacity:0;will-change:transform;mix-blend-mode:multiply;
+  background:radial-gradient(closest-side,rgba(250,62,49,.16),rgba(255,176,140,.09) 45%,rgba(255,252,197,0) 72%);transition:opacity .6s,width .5s var(--ease),height .5s var(--ease),margin .5s var(--ease)}
+html[data-theme=dark] #ember{mix-blend-mode:screen;background:radial-gradient(closest-side,rgba(250,62,49,.34),rgba(250,62,49,.10) 50%,rgba(250,62,49,0) 72%)}
+#ember.on{opacity:1}
+#ember.hot{width:360px;height:360px;margin:-180px 0 0 -180px}
+.m-ring{position:fixed;z-index:61;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;border:2px solid var(--red);pointer-events:none;animation:mRing .9s var(--ease) forwards}
+@keyframes mRing{to{transform:scale(11);opacity:0;border-width:.5px}}
+
+/* ── dialogs / intro ── */
+html body .intro-prompt{font-style:italic;font-weight:500;letter-spacing:-.02em;color:var(--slate)}
+html body .skip-intro{font-style:italic}
+html body .print-dialog,html body .finish-dialog{border-top:4px solid var(--red)}
+html body .print-dialog button.primary{color:var(--ink)}
+@media(max-width:650px){html body .tabs button{letter-spacing:-.03em}html body .mast .small-button{padding:6px 10px}#ember{display:none}}
+@media(prefers-reduced-motion:reduce){.stage::before,html body .guide::after{animation:none}html body .panel.active{animation:none}html.mood-js .m-rise{opacity:1;transform:none;transition:none}#ember{display:none}}
+@media(pointer:coarse){#ember{display:none}}
+html[data-theme=dark] body .tabs button{color:var(--mist);opacity:.55}
+html[data-theme=dark] body .tabs button:hover{opacity:.95}
+html[data-theme=dark] body .tabs button.active{color:#fff;opacity:1}

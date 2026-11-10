@@ -1,0 +1,32 @@
+/* White-led brand palette. Cool accents are restricted to small functional marks. */
+:root{--ink:#12141c;--red:#fa3e31;--slate:#485e80;--blue:#485e80;--mist:#485e80;--cream:#fffcc5;--muted:#777777;--line:#dddddd}
+body{color:var(--ink)}
+.mast .small-button,.about-link:hover,.text-button:hover{color:var(--slate)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--slate)}
+.tabs button{color:#748296}
+.tabs button.active{color:var(--ink)}
+.tabs button.active small{color:var(--red)}
+.tabs,.lab-toolbar,.preset-dock,.preset-dock.is-pinned{border-color:var(--line)}
+.tabs button.active{text-decoration:underline;text-decoration-color:var(--blue);text-underline-offset:7px;text-decoration-thickness:2px}
+input[type=range]{background:var(--mist);accent-color:var(--slate)}
+input[type=range]::-webkit-slider-thumb{background:var(--slate)}
+input[type=range]::-moz-range-thumb{background:var(--slate)}
+.option-grid button.selected,.mode-list button.selected,.palette.selected{color:var(--slate)}
+.option-grid button.selected,.mode-list button.selected b{text-decoration-color:var(--blue)}
+.palette.selected .strip{outline-color:var(--slate)}
+.stage-top,.stage-bottom,.lab-toolbar,.panel-copy{color:var(--slate)}
+.primary{background:var(--ink);color:#fff}
+.primary:hover{background:var(--slate);color:#fff}
+.preset-dock .preset.selected .preset-caption>span:last-child{text-decoration-color:var(--blue)}
+.section-label>span,.guide-columns>div>span,footer{color:var(--slate)}
+.guide{border-top-color:var(--ink)}
+.guide-columns>div>span{display:inline-block;background:var(--cream);padding:3px 6px}
+.intro-logo-symbol{clip-path:inset(0 74.8357% 0 0)}
+.intro-logo-word{clip-path:inset(0 0 0 25.1643%)}
+.begin-intro:focus-visible{outline-color:var(--red)}
+.intro-prompt,.skip-intro,.intro-status{color:var(--slate)}
+.sticker-view .sticker-scene{background:radial-gradient(ellipse at 28% 15%,#485e80 0%,#12141c 42%,#12141c 100%)}
+.sticker-view .stage-top,.sticker-view .stage-bottom{color:var(--mist)}
+/* Recolour static reference graphics at display time; source resolution stays intact.
+   Matrix preserves neutral white/black and maps the old warm red to the new red. */
+.hero-reference,.preset img{filter:url(#brand-warm-map)}
